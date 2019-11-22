@@ -866,7 +866,7 @@ Board::Board(){
 		}
 	}
 
-	this->white_now=true;
+	this->white_now=TRUE;
 	Piece *temp;
 	//Put Pieces on the board
 	temp=new Rock(white);
