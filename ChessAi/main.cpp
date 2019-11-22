@@ -19,7 +19,7 @@ int main(){
     char y1,y2;
     move_t go;
     if(in=='w') {
-        cout << "please enter your move by 4 numbers. From (0,1) to (2,2) is a 1 d 3:";
+        cout << "please enter your move by 4 numbers. From (0,1) to (2,2) is a1 d3:";
         cin >> y1 >> x1 >> y2 >> x2;
         go.src.r = x1 - 1;
         y1 -= 49;
@@ -61,7 +61,7 @@ int main(){
             }
         }
         //Human turn
-        cout<<"please enter your move by 4 numbers. From (0,1) to (2,2) is a 1 d 3:";
+        cout<<"please enter your move by 4 numbers. From (0,1) to (2,2) is a1 d3:";
         cin>>y1>>x1>>y2>>x2;
         go.src.r=x1-1;
         y1-=49;
