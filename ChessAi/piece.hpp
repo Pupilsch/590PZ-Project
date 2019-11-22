@@ -16,10 +16,10 @@ using namespace std;
 #define KING 4
 
 enum PieceColor {
-	white, black
+    white, black
 };
 enum PieceType {
-	pawn, rock, bishop, knight, queen, king
+    pawn, rock, bishop, knight, queen, king
 };
 
 class Piece{
@@ -45,7 +45,7 @@ public:
         this->type=pawn;
         this->color=color;
         this->value=1;
-        
+
     }
     void print(){
         if(get_color()==white){
@@ -117,7 +117,7 @@ public:
         this->type=rock;
         this->color=color;
         this->value=5;
-        
+
     }
     void print(){
         if(get_color()==white){
@@ -223,7 +223,7 @@ public:
         this->type=bishop;
         this->color=color;
         this->value=3;
-        
+
     }
     void print(){
         if(get_color()==white){
@@ -333,7 +333,7 @@ public:
         this->type=knight;
         this->color=color;
         this->value=3;
-        
+
     }
     void print(){
         if(get_color()==white){
@@ -343,129 +343,129 @@ public:
         }
     }
     // void get_possible_move(){
-        //vector<vector<Piece*>> parent->grid=parent->grid;
-        // int r=position.r;
-        // int c=position.c;
-        // if(r+1<=4 && c+2<=3){
-        //     if(parent->grid[r+1][c+2]==NULL){
-        //         point_t p;
-        //         p.r=r+1;
-        //         p.c=c+2;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r+1][c+2]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r+1;
-        //             p.c=c+2;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r+2<=4 && c+1<=3){
-        //     if(parent->grid[r+2][c+1]==NULL){
-        //         point_t p;
-        //         p.r=r+2;
-        //         p.c=c+1;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r+2][c+1]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r+2;
-        //             p.c=c+1;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r+2<=4 && c-1>=0){
-        //     if(parent->grid[r+2][c-1]==NULL){
-        //         point_t p;
-        //         p.r=r+2;
-        //         p.c=c-1;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r+2][c-1]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r+2;
-        //             p.c=c-1;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r+1<=4 && c-2>=0){
-        //     if(parent->grid[r+2][c-2]==NULL){
-        //         point_t p;
-        //         p.r=r+1;
-        //         p.c=c-2;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r+1][c-2]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r+1;
-        //             p.c=c-2;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r-1>=0 && c-2>=0){
-        //     if(parent->grid[r-1][c-2]==NULL){
-        //         point_t p;
-        //         p.r=r-1;
-        //         p.c=c-2;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r-1][c-2]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r-1;
-        //             p.c=c-2;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r-2>=0 && c-1>=0){
-        //     if(parent->grid[r-2][c-1]==NULL){
-        //         point_t p;
-        //         p.r=r-2;
-        //         p.c=c-1;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r-2][c-1]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r-2;
-        //             p.c=c-1;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r-2>=0 && c+1<=3){
-        //     if(parent->grid[r-2][c+1]==NULL){
-        //         point_t p;
-        //         p.r=r-2;
-        //         p.c=c+1;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r-2][c+1]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r-2;
-        //             p.c=c+1;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
-        // if(r-1>=0 && c+2<=3){
-        //     if(parent->grid[r-1][c+2]==NULL){
-        //         point_t p;
-        //         p.r=r-1;
-        //         p.c=c+2;
-        //         move_list.push_back(p);
-        //     }else{
-        //         if(parent->grid[r-1][c+2]->get_color()!=this->color){
-        //             point_t p;
-        //             p.r=r-1;
-        //             p.c=c+2;
-        //             move_list.push_back(p);
-        //         }
-        //     }
-        // }
+    //vector<vector<Piece*>> parent->grid=parent->grid;
+    // int r=position.r;
+    // int c=position.c;
+    // if(r+1<=4 && c+2<=3){
+    //     if(parent->grid[r+1][c+2]==NULL){
+    //         point_t p;
+    //         p.r=r+1;
+    //         p.c=c+2;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r+1][c+2]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r+1;
+    //             p.c=c+2;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r+2<=4 && c+1<=3){
+    //     if(parent->grid[r+2][c+1]==NULL){
+    //         point_t p;
+    //         p.r=r+2;
+    //         p.c=c+1;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r+2][c+1]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r+2;
+    //             p.c=c+1;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r+2<=4 && c-1>=0){
+    //     if(parent->grid[r+2][c-1]==NULL){
+    //         point_t p;
+    //         p.r=r+2;
+    //         p.c=c-1;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r+2][c-1]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r+2;
+    //             p.c=c-1;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r+1<=4 && c-2>=0){
+    //     if(parent->grid[r+2][c-2]==NULL){
+    //         point_t p;
+    //         p.r=r+1;
+    //         p.c=c-2;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r+1][c-2]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r+1;
+    //             p.c=c-2;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r-1>=0 && c-2>=0){
+    //     if(parent->grid[r-1][c-2]==NULL){
+    //         point_t p;
+    //         p.r=r-1;
+    //         p.c=c-2;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r-1][c-2]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r-1;
+    //             p.c=c-2;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r-2>=0 && c-1>=0){
+    //     if(parent->grid[r-2][c-1]==NULL){
+    //         point_t p;
+    //         p.r=r-2;
+    //         p.c=c-1;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r-2][c-1]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r-2;
+    //             p.c=c-1;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r-2>=0 && c+1<=3){
+    //     if(parent->grid[r-2][c+1]==NULL){
+    //         point_t p;
+    //         p.r=r-2;
+    //         p.c=c+1;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r-2][c+1]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r-2;
+    //             p.c=c+1;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
+    // if(r-1>=0 && c+2<=3){
+    //     if(parent->grid[r-1][c+2]==NULL){
+    //         point_t p;
+    //         p.r=r-1;
+    //         p.c=c+2;
+    //         move_list.push_back(p);
+    //     }else{
+    //         if(parent->grid[r-1][c+2]->get_color()!=this->color){
+    //             point_t p;
+    //             p.r=r-1;
+    //             p.c=c+2;
+    //             move_list.push_back(p);
+    //         }
+    //     }
+    // }
     // }
 };
 
@@ -475,7 +475,7 @@ public:
         this->type=king;
         this->color=color;
         this->value=1000;
-        
+
     }
     void print(){
         if(get_color()==white){
