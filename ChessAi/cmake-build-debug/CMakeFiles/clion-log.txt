@@ -1,0 +1,4 @@
+"E:\CLion 2017.3.4\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Kitsch\Desktop\IS590PZ\Github Code\590PZ-Project\ChessAi"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/cmake-build-debug

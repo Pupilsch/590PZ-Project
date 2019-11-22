@@ -5,7 +5,8 @@ using namespace std;
 
 int main(){
     Board *b=new Board();
-    //b->init_place();
+    //b->init_board();
+    b->set_board();
     b->print();
     //cout<<b->evaluate();
     char in;
@@ -17,17 +18,19 @@ int main(){
     int x1,x2;
     char y1,y2;
     move_t go;
-    if(in=='w'){
-        cout<<"please enter your move by 4 numbers. From (0,1) to (2,3) is 0 1 2 3:";
-        cin>>y1>>x1>>y2>>x2;
-        go.src.r=x1-1;
-        y1-=49;
-        y2-=49;
-        go.src.c=int(y1)-48;
-        go.des.r=x2-1;
-        go.des.c=int(y2)-48;
+    if(in=='w') {
+        cout << "please enter your move by 4 numbers. From (0,1) to (2,2) is a 1 d 3:";
+        cin >> y1 >> x1 >> y2 >> x2;
+        go.src.r = x1 - 1;
+        y1 -= 49;
+        y2 -= 49;
+        go.src.c = int(y1) - 48;
+        go.des.r = x2 - 1;
+        go.des.c = int(y2) - 48;
         b->human_move(go);
         b->print();
+    }else{
+        b->valid_move();
     }
 
     while(true){
@@ -58,7 +61,7 @@ int main(){
             }
         }
         //Human turn
-        cout<<"please enter your move by 4 numbers. From (0,1) to (2,3) is 0 1 2 3:";
+        cout<<"please enter your move by 4 numbers. From (0,1) to (2,2) is a 1 d 3:";
         cin>>y1>>x1>>y2>>x2;
         go.src.r=x1-1;
         y1-=49;

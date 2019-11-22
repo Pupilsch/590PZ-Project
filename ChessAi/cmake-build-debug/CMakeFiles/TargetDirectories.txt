@@ -1,0 +1,3 @@
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/cmake-build-debug/CMakeFiles/ChessAi.dir
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

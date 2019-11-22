@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/board.hpp
+iostream
+-
+vector
+-
+stack
+-
+piece.hpp
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/piece.hpp
+
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/main.cpp
+iostream
+-
+board.hpp
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/board.hpp
+
+C:/Users/Kitsch/Desktop/IS590PZ/Github Code/590PZ-Project/ChessAi/piece.hpp
+iostream
+-
+vector
+-
+windows.h
+-
+wchar.h
+-
+

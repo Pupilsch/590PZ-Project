@@ -43,6 +43,8 @@ struct minimax_return{
 class Board{
 public:
     Board();
+    void init_board();
+    void set_board();
     void print();
     int evaluate();
     bool white_now;
@@ -57,8 +59,8 @@ public:
     void valid_move();
     vector<move_t> VM_white; //list of valid of white
     vector<move_t> VM_black; //list of valid of black
-    vector<vector<Piece*>> grid;
-    stack<vector<vector<Piece*>>> grid_list;
+    vector<vector<Piece*> > grid;
+    stack<vector<vector<Piece*> > > grid_list;
 };
 
 void Board::move(move_t s_move){
@@ -165,6 +167,26 @@ void Board::valid_move(){
                             }
                         }
                     }
+                    if(r!=4 && (c==1 || c==2)){
+                        if(grid[r+1][c-1]!=NULL){
+                            if(grid[r+1][c-1]->get_color()==black){
+                                point_t p;
+                                p.r=r+1;
+                                p.c=c-1;
+                                a_move.des=p;
+                                VM_white.push_back(a_move);
+                            }
+                        }
+                        if(grid[r+1][c+1]!=NULL){
+                            if(grid[r+1][c+1]->get_color()==black){
+                                point_t p;
+                                p.r=r+1;
+                                p.c=c+1;
+                                a_move.des=p;
+                                VM_white.push_back(a_move);
+                            }
+                        }
+                    }
                 }
                 if(grid[i][j]->get_color()==black){
                     int r=i;
@@ -193,6 +215,26 @@ void Board::valid_move(){
                                 point_t p;
                                 p.r=r-1;
                                 p.c=c-1;
+                                a_move.des=p;
+                                VM_black.push_back(a_move);
+                            }
+                        }
+                    }
+                    if(r!=0 && (c==1 || c==2)){
+                        if(grid[r-1][c-1]!=NULL){
+                            if(grid[r-1][c-1]->get_color()==white){
+                                point_t p;
+                                p.r=r-1;
+                                p.c=c-1;
+                                a_move.des=p;
+                                VM_white.push_back(a_move);
+                            }
+                        }
+                        if(grid[r-1][c+1]!=NULL){
+                            if(grid[r-1][c+1]->get_color()==white){
+                                point_t p;
+                                p.r=r-1;
+                                p.c=c+1;
                                 a_move.des=p;
                                 VM_black.push_back(a_move);
                             }
@@ -237,6 +279,8 @@ void Board::valid_move(){
                     }
                 }
                 //search south
+                r=i;
+                c=j;
                 while(r!=4){
                     if(grid[r+1][c]==NULL){
                         point_t p;
@@ -268,6 +312,8 @@ void Board::valid_move(){
                     }
                 }
                 //search west
+                r=i;
+                c=j;
                 while(c!=0){
                     if(grid[r][c-1]==NULL){
                         point_t p;
@@ -299,6 +345,8 @@ void Board::valid_move(){
                     }
                 }
                 //search north
+                r=i;
+                c=j;
                 while(r!=0){
                     if(grid[r-1][c]==NULL){
                         point_t p;
@@ -368,6 +416,8 @@ void Board::valid_move(){
                     }
                 }
                 //serach east-south
+                r=i;
+                c=j;
                 while(c!=3 && r!=4){
                     if(grid[r+1][c+1]==NULL){
                         point_t p;
@@ -400,6 +450,8 @@ void Board::valid_move(){
                     }
                 }
                 //serach west-south
+                r=i;
+                c=j;
                 while(c!=0 && r!=4){
                     if(grid[r+1][c-1]==NULL){
                         point_t p;
@@ -432,6 +484,8 @@ void Board::valid_move(){
                     }
                 }
                 //serach west-north
+                r=i;
+                c=j;
                 while(c!=0 && r!=0){
                     if(grid[r-1][c-1]==NULL){
                         point_t p;
@@ -880,71 +934,33 @@ void Board::valid_move(){
     }
 }
 
-Board::Board(){
-    grid.resize(HEIGHT);
-    for(int i=0;i<HEIGHT;i++){
-        for(int j=0;j<WIDTH;j++){
-            grid[i].push_back(NULL);
-        }
-    }
-
-    this->white_now=TRUE;
+void Board::init_board(){
     Piece *temp;
     //Put Pieces on the board
     temp=new Rock(white);
     grid[0][0]=temp;
-    //temp->i=0;
-    //temp->position.c=0;
-    //temp->=this;
     temp=new Knight(white);
     grid[0][1]=temp;
-    //temp->i=0;
-    //temp->position.c=1;
-    //temp->=this;
     temp=new Bishop(white);
     grid[0][2]=temp;
-    //temp->i=0;
-    //temp->position.c=2;
-    //temp->=this;
     temp=new King(white);
     grid[0][3]=temp;
-    //temp->i=0;
-    //temp->position.c=3;
-    //temp->=this;
     for(int j=0;j<WIDTH;j++){
         temp=new Pawn(white);
         grid[1][j]=temp;
-        //temp->i=1;
-        //temp->position.c=j;
-        //temp->=this;
     }
 
     temp=new Rock(black);
     grid[4][0]=temp;
-    //temp->i=4;
-    //temp->position.c=0;
-    //temp->=this;
     temp=new Knight(black);
     grid[4][1]=temp;
-    //temp->i=4;
-    //temp->position.c=1;
-    //temp->=this;
     temp=new Bishop(black);
     grid[4][2]=temp;
-    //temp->i=4;
-    //temp->position.c=2;
-    //temp->=this;
     temp=new King(black);
     grid[4][3]=temp;
-    //temp->i=4;
-    //temp->position.c=3;
-    //temp->=this;
     for(int j=0;j<WIDTH;j++){
         temp=new Pawn(black);
         grid[3][j]=temp;
-        //temp->i=3;
-        //temp->position.c=j;
-        //temp->=this;
     }
 
     for(int j=0;j<WIDTH;j++){
@@ -953,9 +969,45 @@ Board::Board(){
     grid_list.push(grid);
 }
 
-// vector<vector<Piece*>>* Board::get_grid_pointer(){
+void Board::set_board() {
+    for(int i=0;i<HEIGHT;i++){
+        for(int j=0;j<WIDTH;j++){
+            grid[i][j]=NULL;
+        }
+    }
+    Piece *temp;
+    temp=new Rock(white);
+    grid[3][0]=temp;
+    temp=new King(white);
+    grid[0][3]=temp;
+    temp=new Pawn(white);
+    grid[1][2]=temp;
+    temp=new Pawn(white);
+    grid[2][3]=temp;
+    temp=new Rock(black);
+    grid[4][1]=temp;
+    temp=new Pawn(black);
+    grid[2][2]=temp;
+    temp=new Pawn(black);
+    grid[3][3]=temp;
+    temp=new King(black);
+    grid[4][3]=temp;
+    temp=new Bishop(white);
+    grid[2][0]=temp;
 
-// }
+    grid_list.push(grid);
+}
+
+Board::Board(){
+    grid.resize(HEIGHT);
+    for(int i=0;i<HEIGHT;i++){
+        for(int j=0;j<WIDTH;j++){
+            grid[i].push_back(NULL);
+        }
+    }
+
+    this->white_now=true;
+}
 
 void Board::print() {
     cout << "  a b c d" << endl;
@@ -1031,6 +1083,8 @@ bool Board::if_checked(PieceColor color){
 bool Board::if_lose(PieceColor color){//Need to be called after valid_move(), color represent the one who might lose
     bool result=false;
     int flag=0;
+//    vector<move_t> white_backup(VM_white);
+//    vector<move_t> black_backup(VM_black);
     if(color==white){
         if(if_checked(white)){
             if(VM_white.empty()) return true;
@@ -1062,6 +1116,8 @@ bool Board::if_lose(PieceColor color){//Need to be called after valid_move(), co
 bool Board::if_draw(PieceColor color){
     bool result=false;
     int flag=0;
+//    vector<move_t> white_backup(VM_white);
+//    vector<move_t> black_backup(VM_black);
     if(color==white){
         if(!if_checked(white)){
             if(VM_white.empty()) return true;
@@ -1125,6 +1181,15 @@ minimax_return Board::minimax(int depth){
             result.a_score=score;
             return result;
         }
+        if(depth!=MAX_DEPTH && if_checked(black)){//Might have problem
+            score=10000;
+            result.a_move.des.r=-1;
+            result.a_move.des.c=-1;
+            result.a_move.src.r=-1;
+            result.a_move.src.c=-1;
+            result.a_score=score;
+            return result;
+        }
     }else{
         if(if_lose(black)) {
             score=5000;
@@ -1137,6 +1202,15 @@ minimax_return Board::minimax(int depth){
         }
         if(if_draw(black)){
             score=0;
+            result.a_move.des.r=-1;
+            result.a_move.des.c=-1;
+            result.a_move.src.r=-1;
+            result.a_move.src.c=-1;
+            result.a_score=score;
+            return result;
+        }
+        if(depth!=MAX_DEPTH && if_checked(white)){//Might have problem
+            score=-10000;
             result.a_move.des.r=-1;
             result.a_move.des.c=-1;
             result.a_move.src.r=-1;

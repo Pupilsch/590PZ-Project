@@ -1,0 +1,3 @@
+"E:\CLion 2017.3.4\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\ChessAi.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\ChessAi.dir/objects.a @CMakeFiles\ChessAi.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\ChessAi.dir/objects.a -Wl,--no-whole-archive  -o ChessAi.exe -Wl,--out-implib,libChessAi.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ChessAi.dir\linklibs.rsp
