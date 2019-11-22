@@ -5,8 +5,8 @@ using namespace std;
 
 int main(){
     Board *b=new Board();
-    //b->init_board();
-    b->set_board();
+    b->init_board();
+    //b->set_board();
     b->print();
     //cout<<b->evaluate();
     char in;
